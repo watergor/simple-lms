@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from lms.models import Course, Lesson, UserProfile, Enrollment
+
+admin.site.register(Lesson)
+admin.site.register(UserProfile)
+admin.site.register(Course)
+admin.site.register(Enrollment)

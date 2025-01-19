@@ -13,7 +13,7 @@ class UserProfile(AbstractUser):
     )
 
     def __str__(self):
-        return self.user.username
+        return self.username
 
 
 class Course(models.Model):
@@ -47,6 +47,9 @@ class Lesson(models.Model):
     content = models.TextField()
     file = models.FileField(upload_to="lesson/")
     video_url = models.URLField(blank=True, null=True)
+    course = models.ForeignKey(
+        Course, on_delete=models.CASCADE, related_name="lessons"
+    )
 
     def __str__(self):
         return self.title
